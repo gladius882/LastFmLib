@@ -6,6 +6,8 @@
  * 
  */
 using System;
+using System.IO;
+using System.Xml;
 
 namespace LastFmLib
 {
@@ -13,11 +15,12 @@ namespace LastFmLib
 	{
 		public static void Main(string[] args)
 		{
-			Console.WriteLine("Hello World!");
+			Image img = new Image();
+			img.Small = "https://lastfm-img2.akamaized.net/i/u/34s/943152c140464b819e5188cec5a5b91f.png";
+			img.Download("file.png", ImageSize.Small);
 			
-			// TODO: Implement Functionality Here
+			Console.WriteLine("Download complete");
 			
-			Console.Write("Press any key to continue . . . ");
 			Console.ReadKey(true);
 		}
 	}
