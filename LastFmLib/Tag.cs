@@ -16,6 +16,7 @@ namespace LastFmLib
 	/// </summary>
 	public class Tag
 	{
+		// TODO add ShortTag class
 		public string Name { get; private set; }
 		public string Url { get; private set; }
 		public string Summary { get; private set; }
@@ -25,6 +26,11 @@ namespace LastFmLib
 		
 		public Tag()
 		{
+		}
+		
+		public Tag(string file)
+		{
+			this.Load(file);
 		}
 		
 		public void Load(string file)
@@ -37,7 +43,7 @@ namespace LastFmLib
 			this.Summary = doc.GetElementsByTagName("summary")[0].InnerText;
 			this.Description = doc.GetElementsByTagName("content")[0].InnerText;
 			
-			this.Status = doc.GetElementsByTagName("lfm").Item(0).Attributes["status"].Value;
+			this.Status = doc.SelectNodes("lfm/@status")[0].InnerText;
 		}
 	}
 }

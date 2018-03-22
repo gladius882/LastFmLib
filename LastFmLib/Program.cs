@@ -15,11 +15,11 @@ namespace LastFmLib
 	{
 		public static void Main(string[] args)
 		{
-			Image img = new Image();
-			img.Small = "https://lastfm-img2.akamaized.net/i/u/34s/943152c140464b819e5188cec5a5b91f.png";
-			img.Download("file.png", ImageSize.Small);
+			Artist a = new Artist();
+			a.Load("The Cranberries.xml");
 			
-			Console.WriteLine("Download complete");
+			Console.WriteLine(a.Status);
+			
 			
 			Console.ReadKey(true);
 		}

@@ -7,6 +7,7 @@
  */
 using System;
 using System.Net;
+using System.Xml;
 
 namespace LastFmLib
 {
@@ -25,9 +26,9 @@ namespace LastFmLib
 	public class Image
 	{
 		public string Small { get; set; }
-		public string Medium { get; private set; }
-		public string Large { get; private set; }
-		public string ExtraLarge { get; private set; }
+		public string Medium { get; set; }
+		public string Large { get; set; }
+		public string ExtraLarge { get; set; }
 		
 		public Image()
 		{
@@ -45,6 +46,7 @@ namespace LastFmLib
 			}
 		}
 		
+		// TODO add DownloadAsync method
 		public void Download(string destination, ImageSize size)
 		{
 			using(WebClient client = new WebClient())
