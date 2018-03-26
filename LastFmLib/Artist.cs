@@ -31,7 +31,7 @@ namespace LastFmLib
 		
 		public string Status { get; private set; }
 		
-		public List<Tag> Tags { get; private set; }
+		public List<ShortTag> Tags { get; private set; }
 		
 		public Artist()
 		{
@@ -59,6 +59,16 @@ namespace LastFmLib
 			this.PlayCount = int.Parse(doc.SelectNodes("lfm/artist/stats/playcount")[0].InnerText);
 			
 			this.Status = doc.SelectNodes("lfm/@status")[0].InnerText;
+			
+			this.Tags = new List<ShortTag>();
+			XmlNodeList selectedTags = doc.SelectNodes("lfm/artist/tags/tag");
+			foreach(XmlNode tag in selectedTags)
+			{
+				ShortTag currentTag = new ShortTag();
+				currentTag.Name = tag.SelectNodes("name")[0].InnerText;
+				currentTag.Url = tag.SelectNodes("url")[0].InnerText;
+				this.Tags.Add(currentTag);
+			}
 		}
 	}
 }

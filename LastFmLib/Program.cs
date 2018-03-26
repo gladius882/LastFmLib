@@ -18,7 +18,11 @@ namespace LastFmLib
 			Artist a = new Artist();
 			a.Load("The Cranberries.xml");
 			
-			Console.WriteLine(a.Status);
+			foreach(ShortTag t in a.Tags)
+			{
+				Console.WriteLine(t.Name);
+				Console.WriteLine(t.Url+"\n");
+			}
 			
 			
 			Console.ReadKey(true);

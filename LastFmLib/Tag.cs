@@ -17,8 +17,28 @@ namespace LastFmLib
 	public class Tag
 	{
 		// TODO add ShortTag class
-		public string Name { get; private set; }
-		public string Url { get; private set; }
+		private ShortTag shortTag = new ShortTag();
+		
+		public string Name
+		{ 
+			get {
+				return this.shortTag.Name;
+			}
+			private set {
+				this.shortTag.Name = value;
+			}
+		}
+		
+		public string Url
+		{ 
+			get {
+				return this.shortTag.Url;
+			}
+			private set {
+				this.shortTag.Url = value;
+			}
+		}
+		
 		public string Summary { get; private set; }
 		public string Description { get; private set; }
 		
