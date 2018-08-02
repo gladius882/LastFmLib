@@ -27,14 +27,16 @@ namespace LastFmLib
 		public int Listeners;
 		public int Playcount;
 		
-		public List<Track> Tracks;
+		public List<ShortTrack> Tracks;
+		public List<ShortTag> Tags;
 		
 		public string Status;
 		
 		public Album()
 		{
 			this.Image = new Image();
-			this.Tracks = new List<Track>();
+			this.Tracks = new List<ShortTrack>();
+			this.Tags = new List<ShortTag>();
 		}
 		
 		public void Load(string file)
@@ -58,10 +60,27 @@ namespace LastFmLib
 			this.Status = doc.SelectNodes("lfm/@status")[0].InnerText;
 			
 			XmlNodeList selectedTracks = doc.SelectNodes("lfm/album/tracks/track");
-			foreach(XmlNode track in selectedTracks)
+			foreach(XmlNode node in selectedTracks)
 			{
-				// TODO Album.Load
-				this.Tracks.Add(new Track());
+				ShortTrack track = new ShortTrack();
+				track.Position = int.Parse(node.Attributes[0].InnerText);
+				track.Name = node.SelectNodes("name")[0].InnerText;
+				track.Url = node.SelectNodes("url")[0].InnerText;
+				track.Duration = int.Parse(node.SelectNodes("duration")[0].InnerText);
+				track.Streamable = int.Parse(node.SelectNodes("streamable")[0].InnerText);
+				track.ArtistName = node.SelectNodes("artist/name")[0].InnerText;
+				track.ArtistMbid = node.SelectNodes("artist/mbid")[0].InnerText;
+				track.ArtistUrl = node.SelectNodes("artist/url")[0].InnerText;
+				this.Tracks.Add(track);
+			}
+			
+			XmlNodeList selectedTags = doc.SelectNodes("lfm/album/tags/tag");
+			foreach(XmlNode node in selectedTags)
+			{
+				ShortTag tag = new ShortTag();
+				tag.Name = node.SelectNodes("name")[0].InnerText;
+				tag.Url = node.SelectNodes("url")[0].InnerText;
+				this.Tags.Add(tag);
 			}
 		}
 	}
