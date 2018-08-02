@@ -15,15 +15,18 @@ namespace LastFmLib
 	{
 		public static void Main(string[] args)
 		{
-			Artist a = new Artist();
-			a.Load("The Cranberries.xml");
+			Album album = new Album();
+			album.Load("The Cranberries - No need to argue.xml");
 			
-			foreach(ShortTag t in a.Tags)
-			{
-				Console.WriteLine(t.Name);
-				Console.WriteLine(t.Url+"\n");
-			}
+			Track t = new Track();
+			t.Load("The Cranberries - Zombie.xml");
 			
+			Console.WriteLine(t.Name);
+			Console.WriteLine(t.Mbid);
+			Console.WriteLine(t.Url);
+			Console.WriteLine(t.Position);
+			Console.WriteLine(t.Duration);
+			Console.WriteLine(t.Published);
 			
 			Console.ReadKey(true);
 		}

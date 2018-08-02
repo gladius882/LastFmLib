@@ -46,7 +46,7 @@ namespace LastFmLib
 			}
 		}
 		
-		// TODO add DownloadAsync method
+		// TODO add Image.DownloadAsync method
 		public void Download(string destination, ImageSize size)
 		{
 			using(WebClient client = new WebClient())

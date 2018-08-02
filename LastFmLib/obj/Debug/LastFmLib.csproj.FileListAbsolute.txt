@@ -4,3 +4,9 @@ C:\Users\gladius882\Documents\SharpDevelop Projects\LastFmLib\LastFmLib\bin\Debu
 C:\Users\gladius882\Documents\SharpDevelop Projects\LastFmLib\LastFmLib\obj\Debug\LastFmLib.csprojResolveAssemblyReference.cache
 C:\Users\gladius882\Documents\SharpDevelop Projects\LastFmLib\LastFmLib\obj\Debug\LastFmLib.exe
 C:\Users\gladius882\Documents\SharpDevelop Projects\LastFmLib\LastFmLib\obj\Debug\LastFmLib.pdb
+C:\Users\gladius882\Desktop\Git\LastFmLib\LastFmLib\bin\Debug\LastFmLib.exe.config
+C:\Users\gladius882\Desktop\Git\LastFmLib\LastFmLib\bin\Debug\LastFmLib.exe
+C:\Users\gladius882\Desktop\Git\LastFmLib\LastFmLib\bin\Debug\LastFmLib.pdb
+C:\Users\gladius882\Desktop\Git\LastFmLib\LastFmLib\obj\Debug\LastFmLib.csprojResolveAssemblyReference.cache
+C:\Users\gladius882\Desktop\Git\LastFmLib\LastFmLib\obj\Debug\LastFmLib.exe
+C:\Users\gladius882\Desktop\Git\LastFmLib\LastFmLib\obj\Debug\LastFmLib.pdb

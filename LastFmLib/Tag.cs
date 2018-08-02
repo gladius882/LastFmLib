@@ -16,7 +16,6 @@ namespace LastFmLib
 	/// </summary>
 	public class Tag
 	{
-		// TODO add ShortTag class
 		private ShortTag shortTag = new ShortTag();
 		
 		public string Name

@@ -17,21 +17,21 @@ namespace LastFmLib
 	/// </summary>
 	public class Artist
 	{
-		public string Name { get; private set; }
-		public string Mbid { get; private set; }
-		public string Url { get; private set; }
+		public string Name;
+		public string Mbid;
+		public string Url;
 		
-		public Image Image { get; private set; }
+		public Image Image;
 		
-		public int Streamable { get; private set; }
-		public int OnTuor { get; private set; }
+		public int Streamable;
+		public int OnTuor;
 		
-		public int Listeners { get; private set; }
-		public int PlayCount { get; private set; }
+		public int Listeners;
+		public int PlayCount;
 		
-		public string Status { get; private set; }
+		public string Status;
 		
-		public List<ShortTag> Tags { get; private set; }
+		public List<ShortTag> Tags;
 		
 		public Artist()
 		{
