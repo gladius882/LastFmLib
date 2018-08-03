@@ -15,13 +15,16 @@ namespace LastFmLib
 	{
 		public static void Main(string[] args)
 		{
+			Tag tag = new Tag();
+			tag.Load("Rock.xml");
+			
 			Album album = new Album();
 			album.Load("The Cranberries - No need to argue.xml");
 			
-			foreach(ShortTag tag in album.Tags)
+			foreach(ShortTag albumTag in album.Tags)
 			{
-				Console.WriteLine(tag.Name);
-				Console.WriteLine(tag.Url);
+				Console.WriteLine(albumTag.Name);
+				Console.WriteLine(albumTag.Url);
 				Console.WriteLine();
 			}
 			

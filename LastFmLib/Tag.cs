@@ -38,6 +38,9 @@ namespace LastFmLib
 			}
 		}
 		
+		public int Total;
+		public int Reach;
+		
 		public string Summary { get; private set; }
 		public string Description { get; private set; }
 		
@@ -59,6 +62,10 @@ namespace LastFmLib
 			
 			this.Name = doc.GetElementsByTagName("name")[0].InnerText;
 			this.Url = "http://last.fm/tag/"+this.Name;
+			
+			this.Total = int.Parse(doc.SelectNodes("lfm/tag/total")[0].InnerText);
+			this.Reach = int.Parse(doc.SelectNodes("lfm/tag/reach")[0].InnerText);
+			
 			this.Summary = doc.GetElementsByTagName("summary")[0].InnerText;
 			this.Description = doc.GetElementsByTagName("content")[0].InnerText;
 			
