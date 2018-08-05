@@ -15,20 +15,13 @@ namespace LastFmLib
 	{
 		public static void Main(string[] args)
 		{
-			Tag tag = new Tag();
-			tag.Name = "Metal";
-			tag.Save("output/Metal.xml");
+			Album album = new Album();
+			album.Load("The Cranberries - No need to argue.xml");
 			
-			Track track = new Track();
-			track.Name = "Stairway to heaven";
-			track.Mbid = " ";
-			track.Url = " ";
-			track.ArtistName = "Led Zeppelin";
-			track.ArtistMbid = " ";
-			track.ArtistUrl = " ";
-			track.Tags.Add(new ShortTag("rock", "https://last.fm/tag/rock"));
-			track.AlbumTitle = "Some album of Led Zeppelin";
-			track.Save("output/Led Zeppelin - Stairway to heaven.xml");
+			album.Save("output/The Cranberries - No need to argue.xml");
+			
+			Album a2 = new Album();
+			a2.Load("output/The Cranberries - No need to argue.xml");
 			
 //			Track t = new Track();
 //			t.Load("The Cranberries - Zombie.xml");
