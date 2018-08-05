@@ -23,7 +23,7 @@ namespace LastFmLib
 			get {
 				return this.shortTag.Name;
 			}
-			private set {
+			set {
 				this.shortTag.Name = value;
 			}
 		}
@@ -33,7 +33,7 @@ namespace LastFmLib
 			get {
 				return this.shortTag.Url;
 			}
-			private set {
+			set {
 				this.shortTag.Url = value;
 			}
 		}
@@ -48,6 +48,13 @@ namespace LastFmLib
 		
 		public Tag()
 		{
+			Name = "No name";
+			Url = String.Empty;
+			Total = 0;
+			Reach = 0;
+			Summary = "No description";
+			Description = "No description";
+			Status = "ok";
 		}
 		
 		public Tag(string file)
@@ -70,6 +77,42 @@ namespace LastFmLib
 			this.Description = doc.GetElementsByTagName("content")[0].InnerText;
 			
 			this.Status = doc.SelectNodes("lfm/@status")[0].InnerText;
+		}
+		
+		public void Save(string file)
+		{
+			XmlDocument doc = new XmlDocument();
+			XmlElement lfm = doc.CreateElement("lfm");
+			lfm.SetAttribute("status", Status);
+			XmlElement tag = doc.CreateElement("tag");
+			
+			XmlElement name = doc.CreateElement("name");
+			name.InnerText = Name;
+			
+			XmlElement total = doc.CreateElement("total");
+			total.InnerText = Total.ToString();
+			
+			XmlElement reach = doc.CreateElement("reach");
+			reach.InnerText = Reach.ToString();
+			
+			XmlElement wiki = doc.CreateElement("wiki");
+			XmlElement summary = doc.CreateElement("summary");
+			summary.InnerText = Summary;
+			XmlElement content = doc.CreateElement("content");
+			content.InnerText = Description;
+			
+			wiki.AppendChild(summary);
+			wiki.AppendChild(content);
+			
+			tag.AppendChild(name);
+			tag.AppendChild(total);
+			tag.AppendChild(reach);
+			tag.AppendChild(wiki);
+			
+			lfm.AppendChild(tag);
+			doc.AppendChild(lfm);
+			
+			doc.Save(file);
 		}
 	}
 }

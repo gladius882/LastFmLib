@@ -14,11 +14,19 @@ namespace LastFmLib
 	/// </summary>
 	public class ShortTag
 	{
-		public string Name { get; set; }
-		public string Url { get; set; }
+		public string Name;
+		public string Url;
 		
 		public ShortTag()
 		{
+			Name = "No name";
+			Url = String.Empty;
+		}
+		
+		public ShortTag(string name, string url)
+		{
+			Name = name;
+			Url = url;
 		}
 	}
 }

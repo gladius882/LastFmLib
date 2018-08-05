@@ -34,7 +34,7 @@ namespace LastFmLib
 		{
 		}
 		
-		public string getLink(ImageSize size)
+		public string GetLink(ImageSize size)
 		{
 			switch(size)
 			{
@@ -47,11 +47,11 @@ namespace LastFmLib
 		}
 		
 		// TODO add Image.DownloadAsync method
-		public void Download(string destination, ImageSize size)
+		public void Download(string destination, ImageSize size = ImageSize.Medium)
 		{
 			using(WebClient client = new WebClient())
 			{
-				client.DownloadFile(new Uri(getLink(size)), destination);
+				client.DownloadFile(new Uri(GetLink(size)), destination);
 			}
 		}
 	}

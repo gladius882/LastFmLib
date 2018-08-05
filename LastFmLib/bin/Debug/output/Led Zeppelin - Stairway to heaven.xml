@@ -1,0 +1,42 @@
+<lfm status="">
+  <track>
+    <name>Stairway to heaven</name>
+    <mbid> </mbid>
+    <url> </url>
+    <duration>180000</duration>
+    <streamable fulltrack="0">0</streamable>
+    <listeners>0</listeners>
+    <playcount>0</playcount>
+    <artist>
+      <name>Led Zeppelin</name>
+      <mbid> </mbid>
+      <url> </url>
+    </artist>
+    <album position="1">
+      <title>Some album of Led Zeppelin</title>
+      <mbid>
+      </mbid>
+      <url>
+      </url>
+      <image size="small">
+      </image>
+      <image size="medium">
+      </image>
+      <image size="large">
+      </image>
+      <image size="extralarge">
+      </image>
+    </album>
+    <toptags>
+      <tag>
+        <name>rock</name>
+        <url>https://last.fm/tag/rock</url>
+      </tag>
+    </toptags>
+    <wiki>
+      <published>2018-08-05 12:33:24</published>
+      <summary>No description</summary>
+      <content>No description</content>
+    </wiki>
+  </track>
+</lfm>
