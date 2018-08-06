@@ -1,0 +1,6 @@
+C:\Users\gladius882\Desktop\Git\LastFmLib\LastFmLib\bin\Debug\LastFmLibTest.exe.config
+C:\Users\gladius882\Desktop\Git\LastFmLib\LastFmLib\bin\Debug\LastFmLibTest.exe
+C:\Users\gladius882\Desktop\Git\LastFmLib\LastFmLib\bin\Debug\LastFmLibTest.pdb
+C:\Users\gladius882\Desktop\Git\LastFmLib\LastFmLib\obj\Debug\LastFmLibTest.csprojResolveAssemblyReference.cache
+C:\Users\gladius882\Desktop\Git\LastFmLib\LastFmLib\obj\Debug\LastFmLibTest.exe
+C:\Users\gladius882\Desktop\Git\LastFmLib\LastFmLib\obj\Debug\LastFmLibTest.pdb

@@ -41,10 +41,10 @@ namespace LastFmLib
 		public int Total;
 		public int Reach;
 		
-		public string Summary { get; private set; }
-		public string Description { get; private set; }
+		public string Summary;
+		public string Description;
 		
-		public string Status { get; private set; }
+		public string Status;
 		
 		public Tag()
 		{
