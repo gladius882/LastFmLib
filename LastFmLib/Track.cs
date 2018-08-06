@@ -244,8 +244,8 @@ namespace LastFmLib
 			XmlElement album = doc.CreateElement("album");
 			album.SetAttribute("position", Position.ToString());
 			
-			XmlElement albumArist = doc.CreateElement("artist");
-			albumArist.InnerText = AlbumArtist;
+			XmlElement albumArtist = doc.CreateElement("artist");
+			albumArtist.InnerText = AlbumArtist;
 			
 			XmlElement albumTitle = doc.CreateElement("title");
 			albumTitle.InnerText = AlbumTitle;
@@ -272,7 +272,7 @@ namespace LastFmLib
 			albumImageExtraLarge.SetAttribute("size", "extralarge");
 			albumImageExtraLarge.InnerText = AlbumImage.GetLink(ImageSize.ExtraLarge);
 			
-			album.AppendChild(albumTitle);
+			album.AppendChild(albumArtist);
 			album.AppendChild(albumTitle);
 			album.AppendChild(albumMbid);
 			album.AppendChild(albumUrl);
