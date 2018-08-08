@@ -132,8 +132,7 @@ namespace LastFmLib
 		{
 			using(WebClient client = new WebClient())
 			{
-				string name = Name.ToLower();
-				name = name.Replace(" ", "+");
+				string name = Name.ToLower().Replace(' ', '+');
 				string response = client.DownloadString("http://ws.audioscrobbler.com/2.0/?method=tag.getInfo&tag="+name+"&api_key="+Authenticator.APIKey);
 				FromText(response);
 			}

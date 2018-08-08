@@ -6,6 +6,8 @@
  * 
  */
 using System;
+using System.IO;
+using System.Net;
 using System.Xml;
 using System.Collections.Generic;
 using System.Linq;
@@ -54,10 +56,16 @@ namespace LastFmLib
 			Tags = new List<ShortTag>();
 		}
 		
-		public void Load(string file)
+		public void FromFile(string file)
+		{
+			string xml = File.ReadAllText(file);
+			FromText(xml);
+		}
+		
+		public void FromText(string xml)
 		{
 			XmlDocument doc = new XmlDocument();
-			doc.Load(file);
+			doc.LoadXml(xml);
 			
 			this.Name = doc.SelectNodes("lfm/artist/name")[0].InnerText;
 			this.Mbid = doc.GetElementsByTagName("mbid")[0].InnerText;
@@ -218,6 +226,22 @@ namespace LastFmLib
 			doc.AppendChild(lfm);
 			
 			doc.Save(file);
+		}
+		
+		public void GetInfo(string artist)
+		{
+			Name = artist;
+			GetInfo();
+		}
+		
+		public void GetInfo()
+		{
+			using(WebClient client = new WebClient())
+			{
+				string artist = Name.ToLower().Replace(' ', '+');
+				string response = client.DownloadString("http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist="+artist+"&api_key="+Authenticator.APIKey);
+				FromText(response);
+			}
 		}
 	}
 }
