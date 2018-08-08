@@ -7,7 +7,9 @@
  * To change this template use Tools | Options | Coding | Edit Standard Headers.
  */
 using System;
+using System.IO;
 using System.Xml;
+using System.Net;
 using System.Collections.Generic;
 
 namespace LastFmLib
@@ -53,10 +55,16 @@ namespace LastFmLib
 			Tags = new List<ShortTag>();
 		}
 		
-		public void Load(string file)
+		public void FromFile(string file)
+		{
+			string xml = File.ReadAllText(file);
+			FromText(xml);
+		}
+		
+		public void FromText(string xml)
 		{
 			XmlDocument doc = new XmlDocument();
-			doc.Load(file);
+			doc.LoadXml(xml);
 			
 			Name = doc.SelectNodes("lfm/album/name")[0].InnerText;
 			Artist = doc.SelectNodes("lfm/album/artist")[0].InnerText;
@@ -213,6 +221,24 @@ namespace LastFmLib
 			lfm.AppendChild(album);
 			doc.AppendChild(lfm);
 			doc.Save(file);
+		}
+		
+		public void GetInfo(string artist, string album)
+		{
+			Artist = artist;
+			Name = album;
+			GetInfo();
+		}
+		
+		public void GetInfo()
+		{
+			using(WebClient client = new WebClient())
+			{
+				string artist = Artist.ToLower().Replace(' ', '+');
+				string album = Name.ToLower().Replace(' ', '+');
+				string response = client.DownloadString("http://ws.audioscrobbler.com/2.0/?method=album.getinfo&api_key="+Authenticator.APIKey+"&artist="+artist+"&album="+album);
+				FromText(response);
+			}
 		}
 	}
 }

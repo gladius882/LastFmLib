@@ -6,6 +6,7 @@
  * 
  */
 using System;
+using System.Net;
 using System.IO;
 using System.Xml;
 
@@ -59,16 +60,22 @@ namespace LastFmLib
 		
 		public Tag(string file)
 		{
-			this.Load(file);
+			FromFile(file);
 		}
 		
-		public void Load(string file)
+		public void FromFile(string file)
+		{
+			string xml = File.ReadAllText(file);
+			FromText(xml);
+		}
+		
+		public void FromText(string xml)
 		{
 			XmlDocument doc = new XmlDocument();
-			doc.Load(file);
+			doc.LoadXml(xml);
 			
 			this.Name = doc.GetElementsByTagName("name")[0].InnerText;
-			this.Url = "http://last.fm/tag/"+this.Name;
+			this.Url = "http://last.fm/tag/"+this.Name.ToLower().Replace(' ', '+');
 			
 			this.Total = int.Parse(doc.SelectNodes("lfm/tag/total")[0].InnerText);
 			this.Reach = int.Parse(doc.SelectNodes("lfm/tag/reach")[0].InnerText);
@@ -113,6 +120,23 @@ namespace LastFmLib
 			doc.AppendChild(lfm);
 			
 			doc.Save(file);
+		}
+		
+		public void GetInfo(string tagName)
+		{
+			Name = tagName;
+			GetInfo();
+		}
+		
+		public void GetInfo()
+		{
+			using(WebClient client = new WebClient())
+			{
+				string name = Name.ToLower();
+				name = name.Replace(" ", "+");
+				string response = client.DownloadString("http://ws.audioscrobbler.com/2.0/?method=tag.getInfo&tag="+name+"&api_key="+Authenticator.APIKey);
+				FromText(response);
+			}
 		}
 	}
 }

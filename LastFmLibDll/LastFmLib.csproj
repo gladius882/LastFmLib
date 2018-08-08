@@ -47,6 +47,9 @@
     <Compile Include="..\LastFmLib\Artist.cs">
       <Link>Artist.cs</Link>
     </Compile>
+    <Compile Include="..\LastFmLib\Authenticator.cs">
+      <Link>Authenticator.cs</Link>
+    </Compile>
     <Compile Include="..\LastFmLib\Image.cs">
       <Link>Image.cs</Link>
     </Compile>

@@ -15,13 +15,14 @@ namespace LastFmLib
 	{
 		public static void Main(string[] args)
 		{
+			Authenticator.Initialize("6c295fdbad8695ff5b29afacc5770358");
+			
 			Album album = new Album();
-			album.Load("The Cranberries - No need to argue.xml");
+			album.GetInfo("The Cranberries", "No need to argue");
 			
-			album.Save("output/The Cranberries - No need to argue.xml");
-			
-			Album a2 = new Album();
-			a2.Load("output/The Cranberries - No need to argue.xml");
+			Console.WriteLine(album.Name);
+			Console.WriteLine(album.Url);
+			Console.WriteLine(album.Summary);
 			
 //			Track t = new Track();
 //			t.Load("The Cranberries - Zombie.xml");
